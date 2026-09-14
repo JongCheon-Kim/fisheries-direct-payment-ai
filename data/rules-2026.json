@@ -1,0 +1,301 @@
+{
+  "meta": {
+    "title": "2026 수산자원보호 직불제 규칙엔진",
+    "version": "0.1.0",
+    "basis": [
+      "2026년 수산자원보호 직불제 관련 Q&A집(260804 업데이트)",
+      "2026년 수산자원보호 직접지불제 준수의무 가이드라인"
+    ],
+    "notice": "시범판. 공식 최종 판단은 관계기관 확인이 필요합니다."
+  },
+  "application": {
+    "period": {
+      "from": "2025-12-08",
+      "to": "2025-12-31",
+      "note": "가이드라인의 제출기간. Q&A는 2025-12-31까지 신청으로 안내."
+    },
+    "implementation_period": {
+      "from": "2026-01-01",
+      "to": "2026-09-30"
+    }
+  },
+  "group": {
+    "mixed_offshore_coastal": false,
+    "region_limit": false,
+    "minimum": {
+      "ordinary": {
+        "offshore": 10,
+        "coastal": 20
+      },
+      "tac_stage3": {
+        "offshore": 5,
+        "coastal": 10
+      },
+      "pilot_tac": {
+        "offshore": 10,
+        "coastal": 20
+      }
+    }
+  },
+  "obligations": {
+    "basic": {
+      "name": "TAC 할당 및 준수",
+      "participation_min_pct": 100
+    },
+    "elective_min_count": 2,
+    "elective_default_participation_min_pct": 80,
+    "electronic_catch_report_participation_min_pct": 50,
+    "vessel_reduction_counts_as_elective": false,
+    "other_obligations_multiple_count_as": 1
+  },
+  "scores": {
+    "tac": [
+      {
+        "condition": "5개 어종 또는 TAC 관리비율 90% 이상",
+        "score": 50
+      },
+      {
+        "condition": "4개 어종 또는 TAC 관리비율 80% 이상",
+        "score": 45
+      },
+      {
+        "condition": "3개 어종 이상 또는 TAC 관리비율 70% 이상",
+        "score": 40
+      },
+      {
+        "condition": "2개 어종 또는 TAC 관리비율 50% 이상",
+        "score": 35
+      },
+      {
+        "condition": "1개 어종 또는 TAC 관리비율 30% 이상",
+        "score": 30
+      }
+    ],
+    "closure_participation": [
+      {
+        "min": 100,
+        "max": 100,
+        "score": 5
+      },
+      {
+        "min": 80,
+        "max": 99.999,
+        "score": 3
+      }
+    ],
+    "closure_days": [
+      {
+        "min": 60,
+        "max": 9999,
+        "score_min": 13,
+        "score_max": 15
+      },
+      {
+        "min": 50,
+        "max": 59,
+        "score_min": 11,
+        "score_max": 12
+      },
+      {
+        "min": 40,
+        "max": 49,
+        "score_min": 9,
+        "score_max": 10
+      },
+      {
+        "min": 30,
+        "max": 39,
+        "score_min": 7,
+        "score_max": 8
+      },
+      {
+        "min": 15,
+        "max": 29,
+        "score_min": 5,
+        "score_max": 6
+      }
+    ],
+    "electronic_catch_report": [
+      {
+        "min": 100,
+        "max": 100,
+        "score": 15
+      },
+      {
+        "min": 90,
+        "max": 99.999,
+        "score": 13
+      },
+      {
+        "min": 80,
+        "max": 89.999,
+        "score": 11
+      },
+      {
+        "min": 70,
+        "max": 79.999,
+        "score": 9
+      },
+      {
+        "min": 60,
+        "max": 69.999,
+        "score": 7
+      },
+      {
+        "min": 50,
+        "max": 59.999,
+        "score": 5
+      }
+    ],
+    "vessel_reduction": [
+      {
+        "condition": "최근 3년간 감척 대상 포함 어선 없음",
+        "score": 5
+      },
+      {
+        "condition": "최근 3년간 감척 대상 포함 어선 있음",
+        "score": 3
+      }
+    ],
+    "other_max_items": 3,
+    "other_score_cap": 10,
+    "marine_litter": {
+      "participation": [
+        {
+          "min": 100,
+          "score": 2
+        },
+        {
+          "min": 80,
+          "max": 99.999,
+          "score": 1
+        }
+      ],
+      "quantity": {
+        "offshore": [
+          {
+            "min": 3.5,
+            "unit": "t",
+            "score": 3
+          },
+          {
+            "min": 2.0,
+            "max": 3.499,
+            "unit": "t",
+            "score": 2
+          },
+          {
+            "min": 1.0,
+            "max": 1.999,
+            "unit": "t",
+            "score": 1
+          }
+        ],
+        "coastal": [
+          {
+            "min": 200,
+            "unit": "kg",
+            "score": 3
+          },
+          {
+            "min": 100,
+            "max": 199.999,
+            "unit": "kg",
+            "score": 2
+          },
+          {
+            "min": 50,
+            "max": 99.999,
+            "unit": "kg",
+            "score": 1
+          }
+        ]
+      },
+      "offshore_under_10t_uses": "coastal"
+    },
+    "biodegradable_gear": [
+      {
+        "min": 90,
+        "score": 5
+      },
+      {
+        "min": 80,
+        "max": 89.999,
+        "score": 3
+      }
+    ],
+    "marine_mammal_mitigation": [
+      {
+        "min": 90,
+        "score": 5
+      },
+      {
+        "min": 80,
+        "max": 89.999,
+        "score": 3
+      }
+    ],
+    "gear_limit_plan": 5,
+    "size_weight_limit_plan": 5,
+    "seed_release_plan": 5,
+    "other_resource_plan": 5
+  },
+  "closure": {
+    "min_continuous_days": 15,
+    "period": {
+      "from": "2026-01-01",
+      "to": "2026-09-30"
+    },
+    "full_stop_required": true,
+    "legal_restriction_overlap_note": "조업제한기간과 중복되지 않도록 설정. 조업제한기간 앞·뒤의 조업중단 기간은 가이드라인상 연속으로 인정되는 경우가 있음.",
+    "justified_departure_examples": [
+      "배 수리",
+      "이동",
+      "과학조사"
+    ],
+    "evidence_required": true
+  },
+  "electronic_catch_report": {
+    "method": "해양수산부 어획증명관리시스템 앱",
+    "coastal": "조업일마다 1회 이상(하루 여러 항차여도 1회 인정)",
+    "offshore": "1항차(출항~입항)마다 1회 이상",
+    "deadline": "입항 기준 24시간 이내",
+    "no_catch_report": "어획물 없음",
+    "implementation_success_pct": 80
+  },
+  "ineligible_group_reduction": [
+    {
+      "min": 0,
+      "max": 19.999,
+      "reduction_pct": 0
+    },
+    {
+      "min": 20,
+      "max": 29.999,
+      "reduction_pct": 10
+    },
+    {
+      "min": 30,
+      "max": 39.999,
+      "reduction_pct": 20
+    },
+    {
+      "min": 40,
+      "max": 49.999,
+      "reduction_pct": 40
+    },
+    {
+      "min": 50,
+      "max": 100,
+      "reduction_pct": 100,
+      "note": "단체 구성원 전원 미지급"
+    }
+  ],
+  "payment": {
+    "under_or_equal_2t_krw": 1500000,
+    "individual_cap_krw": 60000000,
+    "corporate_cap_krw": 92500000,
+    "over_2t_formula_available": false,
+    "note": "제공된 Q&A에는 2톤 초과 구간별 단가표가 없어 시범판에서 임의 계산하지 않음."
+  }
+}

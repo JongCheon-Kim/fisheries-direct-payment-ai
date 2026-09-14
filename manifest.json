@@ -1,0 +1,18 @@
+{
+  "name": "수산직불제 AI",
+  "short_name": "수산직불제AI",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f7fbfe",
+  "theme_color": "#0a79c9",
+  "lang": "ko",
+  "description": "2026 수산자원보호 직불제 공식 Q&A·가이드라인 기반 규칙형 상담 PWA",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
