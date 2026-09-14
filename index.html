@@ -4,11 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0a79c9">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="수산직불제 AI">
+  <meta property="og:title" content="수산직불제 AI">
+  <meta property="og:description" content="공식 Q&A·가이드라인 기반 규칙형 수산직불제 상담 PWA">
+  <meta property="og:image" content="./assets/images/cover-1600x900.png">
+  <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
+  <link rel="apple-touch-startup-image" href="./assets/images/splash-1080x1920.png">
   <title>수산직불제 AI</title>
   <link rel="manifest" href="./manifest.json">
   <link rel="stylesheet" href="./css/app.css">
 </head>
 <body>
+  <div id="appSplash" class="app-splash" aria-hidden="true">
+    <img src="./assets/images/splash-1080x1920.png" alt="">
+  </div>
   <div class="stage">
     <div class="phone-shell">
       <div class="phone-hardware">
@@ -23,7 +34,7 @@
 
         <header class="topbar">
           <div class="brand">
-            <img src="./assets/icon.svg" class="brand-icon" alt="">
+            <img src="./assets/icons/icon-192.png" class="brand-icon" alt="">
             <div>
               <strong>수산직불제 <em>AI</em></strong>
               <small>공식 Q&A · 규칙기반 상담</small>
@@ -34,26 +45,20 @@
 
         <main>
           <section class="view active" id="home">
-            <article class="hero-card">
-              <div class="hero-copy">
-                <span class="version-pill">2026 시범판</span>
-                <h1>수산직불제,<br>쉽고 정확하게 확인하세요.</h1>
-                <p>공식 Q&A와 준수의무 가이드라인을 기준으로 먼저 판정하고, 필요한 근거를 함께 보여드립니다.</p>
-              </div>
-              <div class="hero-art" aria-hidden="true">
-                <div class="sun"></div>
-                <div class="island i1"></div>
-                <div class="island i2"></div>
-                <div class="boat">⛴</div>
-                <div class="wave w1"></div>
-                <div class="wave w2"></div>
-              </div>
+            <article class="hero-card hero-photo">
+              <img src="./assets/images/hero-1200x560.png" alt="수산직불제 AI - 쉽고 정확하게 확인하세요">
+              <span class="version-pill hero-version">2026 시범판</span>
             </article>
 
-            <div class="askbar">
-              <span class="search-dot">⌕</span>
-              <input id="homeQuestion" placeholder="예: 연안어선 12척, TAC 3단계면 신청되나요?">
-              <button id="homeAsk">질문</button>
+            <div class="ask-combo" id="homeAskCombo">
+              <div class="askbar">
+                <span class="search-dot">⌕</span>
+                <input id="homeQuestion" autocomplete="off" aria-autocomplete="list"
+                  aria-controls="questionSuggestions"
+                  placeholder="질문을 직접 입력하거나 추천 질문을 선택하세요">
+                <button id="homeAsk">질문</button>
+              </div>
+              <div id="questionSuggestions" class="question-suggestions hidden" role="listbox"></div>
             </div>
 
             <div id="homeAnswer" class="result-card hidden"></div>
