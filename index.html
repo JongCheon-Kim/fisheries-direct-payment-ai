@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="수산직불제 AI">
   <meta property="og:title" content="수산직불제 AI">
-  <meta property="og:description" content="공식 Q&A·가이드라인 기반 규칙형 수산직불제 상담 PWA">
+  <meta property="og:description" content="2027 시행지침·가이드라인 기반 수산직불제 상담·체험 PWA">
   <meta property="og:image" content="./assets/images/cover-1600x900.png">
   <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
   <link rel="apple-touch-startup-image" href="./assets/images/splash-1080x1920.png">
@@ -37,7 +37,7 @@
             <img src="./assets/icons/icon-192.png" class="brand-icon" alt="">
             <div>
               <strong>수산직불제 <em>AI</em></strong>
-              <small>공식 Q&A · 규칙기반 상담</small>
+              <small>2027 공식지침 · 규칙판정 · 체험</small>
             </div>
           </div>
           <button class="round-icon" data-nav="settings" aria-label="설정">⚙</button>
@@ -47,7 +47,7 @@
           <section class="view active" id="home">
             <article class="hero-card hero-photo">
               <img src="./assets/images/hero-1200x560.png" alt="수산직불제 AI - 쉽고 정확하게 확인하세요">
-              <span class="version-pill hero-version">2026 시범판</span>
+              <span class="version-pill hero-version">2027 리뉴얼</span>
             </article>
 
             <div class="ask-combo" id="homeAskCombo">
@@ -73,24 +73,24 @@
               <button data-tool="faq:TAC"><span class="menu-ico fish">🐟</span><b>TAC</b></button>
               <button data-tool="faq:휴어"><span class="menu-ico stop">⛔</span><b>휴어</b></button>
 
-              <button data-tool="faq:전자어획보고"><span class="menu-ico report">📱</span><b>전자어획보고</b></button>
+              <button data-nav="ereport"><span class="menu-ico report">📱</span><b>전자어획보고</b></button>
               <button data-tool="faq:감척"><span class="menu-ico ship">🚢</span><b>감척</b></button>
               <button data-tool="faq:그밖의의무"><span class="menu-ico duty">✅</span><b>그 밖의 의무</b></button>
 
               <button data-nav="score"><span class="menu-ico score">📊</span><b>평가점수</b></button>
-              <button data-tool="faq:직불금"><span class="menu-ico money">💰</span><b>직불금</b></button>
-              <button data-nav="faq"><span class="menu-ico qa">💬</span><b>공식 Q&A</b></button>
+              <button data-nav="payment"><span class="menu-ico money">💰</span><b>직불금</b></button>
+              <button data-nav="faq"><span class="menu-ico qa">💬</span><b>공식 안내</b></button>
 
-              <button data-nav="wiki"><span class="menu-ico globe">🌐</span><b>현장정보</b></button>
+              <button data-nav="guide"><span class="menu-ico guide">📝</span><b>작성요령</b></button>
               <button data-nav="consult"><span class="menu-ico consult">🧭</span><b>현장 컨설팅</b></button>
-              <button data-nav="settings"><span class="menu-ico api">⚙</span><b>외부 API</b></button>
+              <button data-nav="changes2027"><span class="menu-ico newyear">🆕</span><b>2027 변경</b></button>
             </div>
 
             <aside class="principle-card">
               <div class="principle-icon">🛡</div>
               <div>
-                <strong>시범판 원칙</strong>
-                <p>규칙엔진 → 공식 Q&A → 공식 가이드라인 순으로 답합니다. 근거가 부족하면 관계기관 확인이 필요하다고 표시합니다.</p>
+                <strong>2027판 원칙</strong>
+                <p>2027 시행지침·준수의무 가이드라인을 우선 적용합니다. 기존 Q&A와 충돌하면 2027 기준을 우선하며, 근거가 부족하면 관계기관 확인이 필요하다고 표시합니다.</p>
               </div>
             </aside>
           </section>
@@ -111,12 +111,8 @@
                 </select>
               </div>
               <div class="field-row">
-                <label>TAC 유형</label>
-                <select id="tacType">
-                  <option value="ordinary">일반</option>
-                  <option value="stage3">TAC 3단계</option>
-                  <option value="pilot">시범 TAC</option>
-                </select>
+                <label>2027 기준</label>
+                <div class="static-value">근해 5척 · 연안 10척</div>
               </div>
               <div class="field-row">
                 <label>구성 어선 수</label>
@@ -125,6 +121,14 @@
               <button class="primary wide" id="checkEligibility">판정하기</button>
             </div>
             <div id="eligibilityResult" class="result-card"></div>
+
+            <div class="sheet form">
+              <h3>조업일수 요건</h3>
+              <label class="check"><input type="checkbox" id="isTacStage3Main"> <span>TAC 3단계(정착) 대상 어종을 주로 조업하는 신청단체</span></label>
+              <label>조업일수<input id="operatingDays" type="number" min="0" value="60"></label>
+              <button class="primary" id="checkOperatingDays">조업일수 판정</button>
+              <div id="operatingDaysResult" class="mini-result"></div>
+            </div>
           </section>
 
           <section class="view" id="score">
@@ -135,12 +139,13 @@
             </div>
 
             <div class="sheet form">
-              <h3>휴어 점수범위</h3>
+              <h3>휴어 점수</h3>
               <div class="two-col">
                 <label>전체 구성원<input id="closureTotal" type="number" value="30"></label>
                 <label>참여 구성원<input id="closureJoin" type="number" value="30"></label>
               </div>
               <label>연속 조업중단 일수<input id="closureDays" type="number" value="55"></label>
+              <label>금어기와의 관계<select id="closureRelation"><option value="continuous">금어기와 연속 설정</option><option value="separate">금어기와 별도 / 금어기 없음</option></select></label>
               <button class="primary" id="calcClosure">계산</button>
               <div id="closureResult" class="mini-result"></div>
             </div>
@@ -166,10 +171,87 @@
             </div>
           </section>
 
+          <section class="view" id="changes2027">
+            <div class="page-title">
+              <button class="back" data-nav="home">‹</button>
+              <h2>2027년 변경사항</h2>
+              <span></span>
+            </div>
+            <div class="change-hero">
+              <span class="change-badge">2027 핵심개편</span>
+              <h3>달라진 기준을 한눈에 확인하세요.</h3>
+              <p>카드를 누르면 변경 전·후와 2027 적용기준을 팝업으로 확인할 수 있습니다.</p>
+            </div>
+            <div class="change-grid" id="changeGrid">
+              <button data-change="group"><span>👥</span><b>단체구성</b><small>근해 5 · 연안 10</small></button>
+              <button data-change="schedule"><span>🗓</span><b>신청·이행기간</b><small>11.16~12.11</small></button>
+              <button data-change="days"><span>🛥</span><b>조업일수</b><small>60일 / 30일</small></button>
+              <button data-change="score"><span>📊</span><b>평가배점</b><small>35·25·20·20</small></button>
+              <button data-change="closure"><span>⛔</span><b>휴어</b><small>금어기 연속 여부</small></button>
+              <button data-change="ereport"><span>📱</span><b>전자어획보고</b><small>20점 + 사용체험</small></button>
+              <button data-change="other"><span>✅</span><b>그 밖의 의무</b><small>최대 20점</small></button>
+              <button data-change="payment"><span>💰</span><b>직불금 단가</b><small>구간별 계산 가능</small></button>
+              <button data-change="penalty"><span>⚠</span><b>중도포기 감점</b><small>2028년부터 적용</small></button>
+            </div>
+            <div class="source-note">근거: 2027년 수산자원보호 직접지불제 사업 시행지침 · 2027년 준수의무 가이드라인</div>
+          </section>
+
+          <section class="view" id="ereport">
+            <div class="page-title">
+              <button class="back" data-nav="home">‹</button>
+              <h2>전자어획보고</h2>
+              <span></span>
+            </div>
+            <div class="info-banner ereport-banner">
+              <b>2027년은 어획증명관리시스템 앱으로 보고합니다.</b>
+              <p>수협 조업정보알리미 앱은 인정되지 않는다고 가이드라인에 명시되어 있습니다.</p>
+            </div>
+            <div class="metric-row">
+              <div><b>20점</b><small>최대 배점</small></div>
+              <div><b>50%</b><small>최소 참여율</small></div>
+              <div><b>80%</b><small>개별 이행 인정</small></div>
+            </div>
+            <div class="sheet compact-info">
+              <h3>보고 기준</h3>
+              <p><b>연안</b> · 조업일마다 1회 이상, 하루 여러 항차도 1회 인정</p>
+              <p><b>근해</b> · 1항차(출항~입항)마다 1회 이상</p>
+              <p><b>무어획</b> · ‘어획물 없음’으로 보고</p>
+              <p><b>인정기간</b> · 2027.2.1.~9.30. 입력 실적</p>
+            </div>
+            <div class="experience-actions">
+              <button class="secondary experience-btn" data-guide="ereport"><span>📝</span><b>작성요령 보기</b><small>신청서·이행계획서·평가지표</small></button>
+              <button class="secondary experience-btn" data-modal="reportExample"><span>🖼</span><b>사용 예시 보기</b><small>공식 자료 화면 2장</small></button>
+              <button class="primary experience-btn experience-wide" data-modal="reportSimulator"><span>🎮</span><b>직접 체험하기</b><small>실제 전송 없는 연습모드</small></button>
+            </div>
+            <button class="text-link-btn" data-tool="faq:전자어획보고">전자어획보고 공식 안내 더 보기 ›</button>
+          </section>
+
+          <section class="view" id="payment">
+            <div class="page-title">
+              <button class="back" data-nav="home">‹</button>
+              <h2>직불금 계산</h2>
+              <span></span>
+            </div>
+            <div class="info-banner"><b>2027 시행지침의 톤수 구간별 단가를 적용합니다.</b><p>최종 지급은 지급요건·이행점검 결과 등에 따라 달라질 수 있습니다.</p></div>
+            <div class="sheet form">
+              <label>지급대상자<select id="payType"><option value="individual">개인</option><option value="corporate">법인</option></select></label>
+              <label>본선/대상어선 총톤수<input id="mainTonnage" type="number" step="0.01" min="0" value="9.77"></label>
+              <label class="check"><input type="checkbox" id="fleetMode"><span>선단조업(부속선 톤수 10% 추가 인정)</span></label>
+              <label id="auxTonnageLabel" class="hidden">부속선 톤수 합<input id="auxTonnage" type="number" step="0.01" min="0" value="0"></label>
+              <button class="primary" id="calcPayment">예상 직불금 계산</button>
+              <div id="paymentResult" class="mini-result"></div>
+            </div>
+            <div class="rate-table">
+              <div><b>10톤 이하</b><span>75만원/톤</span></div>
+              <div><b>10~20톤</b><span>70만원/톤</span></div>
+              <div><b>20톤 초과</b><span>65만원/톤</span></div>
+            </div>
+          </section>
+
           <section class="view" id="faq">
             <div class="page-title">
               <button class="back" data-nav="home">‹</button>
-              <h2>공식 Q&A</h2>
+              <h2>2027 공식 안내</h2>
               <span></span>
             </div>
 
@@ -181,28 +263,38 @@
             <div id="faqList"></div>
           </section>
 
-          <section class="view" id="wiki">
+          <section class="view" id="guide">
             <div class="page-title">
               <button class="back" data-nav="home">‹</button>
-              <h2>현장정보</h2>
+              <h2>작성요령</h2>
               <span></span>
             </div>
 
-            <div class="info-banner">
-              <b>공식정보와 이용자 현장정보는 분리됩니다.</b>
-              <p>🟢 확인된 정보 / 🟡 이용자 작성정보</p>
+            <div class="guide-hero">
+              <span class="guide-badge">2027 실무가이드</span>
+              <h3>신청서부터 이행계획서까지 바로 확인하세요.</h3>
+              <p>항목을 누르면 작성요령·평가지표·올바른/잘못된 작성예시를 팝업으로 확인할 수 있습니다.</p>
             </div>
 
-            <button class="primary wide" id="openWikiForm">＋ 정보 올리기</button>
-            <div id="wikiForm" class="sheet form hidden">
-              <label>제목<input id="wikiTitle" maxlength="100"></label>
-              <label>분류<select id="wikiCategory"><option>TAC</option><option>휴어</option><option>전자어획보고</option><option>감척</option><option>신청</option><option>기타</option></select></label>
-              <label>지역(선택)<input id="wikiRegion" placeholder="예: 경남 통영"></label>
-              <label>내용<textarea id="wikiBody" rows="5"></textarea></label>
-              <label class="check"><input type="checkbox" id="wikiConfirm"> <span>공식자료가 아닌 이용자 현장정보임을 확인합니다.</span></label>
-              <button class="primary" id="saveWiki">로컬 시범 저장</button>
+            <div class="guide-category-grid">
+              <button data-guide="application"><span>📄</span><b>신청·제출서류</b><small>신청서·계획서·증빙</small></button>
+              <button data-guide="tac"><span>🐟</span><b>TAC 작성요령</b><small>기본의무·평가지표</small></button>
+              <button data-guide="closure"><span>⛔</span><b>휴어 작성요령</b><small>올바른·잘못된 예시</small></button>
+              <button data-guide="ereport"><span>📱</span><b>전자어획보고</b><small>작성요령·앱 체험</small></button>
+              <button data-guide="other"><span>✅</span><b>그 밖의 의무</b><small>항목별 작성예시</small></button>
+              <button data-guide="score"><span>📊</span><b>평가지표 모음</b><small>35·25·20·20</small></button>
             </div>
-            <div id="wikiList"></div>
+
+            <div class="sheet guide-note">
+              <h3>빠른 연결</h3>
+              <div class="guide-quick-actions">
+                <button class="secondary" data-nav="eligibility">단체구성 판정</button>
+                <button class="secondary" data-nav="score">점수 계산</button>
+                <button class="secondary" data-nav="payment">직불금 계산</button>
+                <button class="secondary" data-modal="reportSimulator">전자어획보고 체험</button>
+              </div>
+              <p>공식안내 또는 추천질문 답변 아래의 관련 버튼에서도 이 작성요령 화면으로 바로 연결됩니다.</p>
+            </div>
           </section>
 
           <section class="view" id="consult">
@@ -212,19 +304,43 @@
               <span></span>
             </div>
 
-            <div class="warning-banner">
-              <b>시범판에서는 개인식별정보를 저장하지 않습니다.</b>
-              <p>기관 백엔드 연결 후 동의·권한·보안정책을 적용합니다.</p>
+            <div class="consult-tabs" id="consultTabs">
+              <button class="active" data-consult-tab="record">상담기록</button>
+              <button data-consult-tab="field">현장정보</button>
             </div>
 
-            <div class="sheet form">
-              <label>익명 사례 ID<input id="caseId" placeholder="예: CASE-2026-001"></label>
-              <label>지역<input id="caseRegion" placeholder="시·군 수준"></label>
-              <label>어업구분<select id="caseFishery"><option>연안</option><option>근해</option></select></label>
-              <label>주요 상담분야<select id="caseTopic"><option>신청·단체구성</option><option>TAC</option><option>휴어</option><option>전자어획보고</option><option>감척</option><option>그 밖의 의무</option><option>직불금</option><option>기타</option></select></label>
-              <label>애로사항<textarea id="caseIssue" rows="4"></textarea></label>
-              <label>상담·조치내용<textarea id="caseAdvice" rows="4"></textarea></label>
-              <button class="primary" id="exportCase">익명 기록 JSON 내려받기</button>
+            <div class="consult-panel active" data-consult-panel="record">
+              <div class="warning-banner">
+                <b>시범판에서는 개인식별정보를 저장하지 않습니다.</b>
+                <p>기관 백엔드 연결 후 동의·권한·보안정책을 적용합니다.</p>
+              </div>
+
+              <div class="sheet form">
+                <label>익명 사례 ID<input id="caseId" placeholder="예: CASE-2027-001"></label>
+                <label>지역<input id="caseRegion" placeholder="시·군 수준"></label>
+                <label>어업구분<select id="caseFishery"><option>연안</option><option>근해</option></select></label>
+                <label>주요 상담분야<select id="caseTopic"><option>신청·단체구성</option><option>TAC</option><option>휴어</option><option>전자어획보고</option><option>감척</option><option>그 밖의 의무</option><option>직불금</option><option>기타</option></select></label>
+                <label>애로사항<textarea id="caseIssue" rows="4"></textarea></label>
+                <label>상담·조치내용<textarea id="caseAdvice" rows="4"></textarea></label>
+                <button class="primary" id="exportCase">익명 기록 JSON 내려받기</button>
+              </div>
+            </div>
+
+            <div class="consult-panel" data-consult-panel="field">
+              <div class="info-banner">
+                <b>현장정보는 현장 컨설팅 안에서 함께 관리합니다.</b>
+                <p>🟢 공식정보 / 🟡 이용자 현장정보 · 현재는 로컬 시범 저장입니다.</p>
+              </div>
+              <button class="primary wide" id="openWikiForm">＋ 현장정보 올리기</button>
+              <div id="wikiForm" class="sheet form hidden">
+                <label>제목<input id="wikiTitle" maxlength="100"></label>
+                <label>분류<select id="wikiCategory"><option>TAC</option><option>휴어</option><option>전자어획보고</option><option>감척</option><option>신청</option><option>기타</option></select></label>
+                <label>지역(선택)<input id="wikiRegion" placeholder="예: 경남 통영"></label>
+                <label>내용<textarea id="wikiBody" rows="5"></textarea></label>
+                <label class="check"><input type="checkbox" id="wikiConfirm"> <span>공식자료가 아닌 이용자 현장정보임을 확인합니다.</span></label>
+                <button class="primary" id="saveWiki">로컬 시범 저장</button>
+              </div>
+              <div id="wikiList"></div>
             </div>
           </section>
 
@@ -271,13 +387,13 @@
               </details>
 
               <details>
-                <summary><span class="setting-icon gray">🗓</span><div><b>기준연도 설정</b><small>현재 2026년 기준</small></div><i>›</i></summary>
-                <div class="setting-body"><p>v0.2 시범판은 2026년 공식 Q&A·가이드라인 기준입니다.</p></div>
+                <summary><span class="setting-icon gray">🗓</span><div><b>기준연도 설정</b><small>현재 2027년 기준</small></div><i>›</i></summary>
+                <div class="setting-body"><p>2027 리뉴얼판은 2027년 사업 시행지침과 준수의무 가이드라인 기준입니다.</p></div>
               </details>
 
               <details>
                 <summary><span class="setting-icon blue">?</span><div><b>도움말</b><small>이용 방법과 주의사항</small></div><i>›</i></summary>
-                <div class="setting-body"><p>API가 없어도 기본 상담은 작동합니다. 운영판에서는 실제 API Key를 정적 파일에 넣지 않고 Worker/기관 서버 환경변수에 보관합니다.</p></div>
+                <div class="setting-body"><p><b>이용방법</b><br>홈의 아이콘·추천질문·공식안내에서 원하는 내용을 확인하고, 답변 아래의 관련 버튼으로 작성요령·평가지표·계산·체험 기능을 이어서 사용할 수 있습니다.</p><p><b>주의사항</b><br>본 앱은 2027 시행지침·가이드라인 기반 보조도구입니다. 최종 신청·지급·이행 판단은 관계기관의 최신 공식자료를 확인해야 합니다.</p><p><b>설치</b><br>스마트폰 브라우저의 ‘홈 화면에 추가/앱 설치’를 이용하면 PWA로 사용할 수 있습니다.</p></div>
               </details>
             </div>
 
@@ -293,12 +409,20 @@
 
         <nav class="bottomnav">
           <button data-nav="home"><span>⌂</span><b>홈</b></button>
-          <button data-nav="faq"><span>💬</span><b>Q&A</b></button>
-          <button data-nav="wiki"><span>🌐</span><b>현장정보</b></button>
+          <button data-nav="faq"><span>💬</span><b>안내</b></button>
+          <button data-nav="guide"><span>📝</span><b>작성요령</b></button>
           <button data-nav="consult"><span>🧭</span><b>컨설팅</b></button>
           <button data-nav="settings"><span>⚙</span><b>설정</b></button>
         </nav>
       </div>
+    </div>
+  </div>
+
+
+  <div id="appModal" class="modal-overlay hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-head"><button id="modalBack" class="modal-back hidden">‹</button><h3 id="modalTitle">안내</h3><button id="modalClose" class="modal-close">×</button></div>
+      <div id="modalBody" class="modal-body"></div>
     </div>
   </div>
 

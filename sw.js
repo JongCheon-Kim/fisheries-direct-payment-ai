@@ -1,4 +1,4 @@
-const CACHE='susan-direct-payment-ai-v0.3.0';
+const CACHE='susan-direct-payment-ai-2027-renewal-0.2.4';
 const ASSETS=[
   './',
   './index.html',
@@ -6,14 +6,16 @@ const ASSETS=[
   './css/app.css',
   './js/app.js',
   './manifest.json',
-  './data/faq-2026.json',
-  './data/rules-2026.json',
+  './data/faq-2027.json',
+  './data/rules-2027.json',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',
   './assets/icons/icon-maskable-512.png',
   './assets/images/hero-1200x560.png',
   './assets/images/splash-1080x1920.png',
-  './assets/images/cover-1600x900.png'
+  './assets/images/cover-1600x900.png',
+  './assets/images/electronic-report-example-1.png',
+  './assets/images/electronic-report-example-2.png',
 ];
 
 self.addEventListener('install',event=>{
