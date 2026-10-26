@@ -1,0 +1,335 @@
+{
+  "meta": {
+    "title": "2027 수산자원보호 직불제 규칙엔진",
+    "version": "2027-renewal-0.1.0",
+    "basis": [
+      "2027년 수산자원보호 직접지불제 사업 시행지침(261006)",
+      "2027년 수산자원보호 직접지불제 준수의무 가이드라인(2026.10.)"
+    ],
+    "notice": "2027 시행자료 기반 리뉴얼판. 최종 행정판단은 관계기관의 최신 공문·지침을 확인해야 합니다."
+  },
+  "application": {
+    "period": {
+      "from": "2026-11-16",
+      "to": "2026-12-11"
+    },
+    "implementation_period": {
+      "from": "2027-01-01",
+      "to": "2027-09-30"
+    },
+    "inspection_period": {
+      "from": "2027-02-01",
+      "to": "2027-09-30"
+    },
+    "intensive_inspection": {
+      "from": "2027-09-01",
+      "to": "2027-09-30"
+    }
+  },
+  "group": {
+    "mixed_offshore_coastal": false,
+    "minimum": {
+      "ordinary": {
+        "offshore": 5,
+        "coastal": 10
+      },
+      "tac_stage3": {
+        "offshore": 5,
+        "coastal": 10
+      },
+      "pilot_tac": {
+        "offshore": 5,
+        "coastal": 10
+      }
+    },
+    "note": "2027 시행자료는 일반 신청단체 최소 구성도 근해 5척·연안 10척으로 제시합니다. TAC 3단계 특례 문구에도 동일 척수가 반복됩니다."
+  },
+  "operating_days": {
+    "period": {
+      "from": "2026-10-01",
+      "to": "2027-09-30"
+    },
+    "ordinary_min_days": 60,
+    "tac_stage3_main_target_min_days": 30,
+    "note": "어선별 TAC가 설정된 어종을 대상으로 주로 조업하는 어선으로 구성된 신청단체 중 시행계획 3단계(정착) 대상은 30일 이상 인정."
+  },
+  "obligations": {
+    "basic": {
+      "name": "총허용어획량(TAC) 준수",
+      "participation_min_pct": 100
+    },
+    "elective_min_count": 2,
+    "elective": [
+      "일시적·자율적 조업중단(휴어)",
+      "어획증명(전자어획보고)",
+      "그 밖의 의무"
+    ],
+    "elective_default_participation_min_pct": 80,
+    "electronic_catch_report_participation_min_pct": 50,
+    "vessel_reduction_is_separate_restriction": true,
+    "other_obligations_multiple_count_as": 1
+  },
+  "scores": {
+    "tac": [
+      {
+        "condition": "5개 어종 또는 TAC 관리비율 90% 이상",
+        "score": 35
+      },
+      {
+        "condition": "4개 어종 또는 TAC 관리비율 80% 이상",
+        "score": 30
+      },
+      {
+        "condition": "3개 어종 이상 또는 TAC 관리비율 70% 이상",
+        "score": 25
+      },
+      {
+        "condition": "2개 어종 또는 TAC 관리비율 50% 이상",
+        "score": 20
+      },
+      {
+        "condition": "1개 어종 또는 TAC 관리비율 30% 이상",
+        "score": 15
+      }
+    ],
+    "closure_participation": [
+      {
+        "min": 100,
+        "max": 100,
+        "score": 5
+      },
+      {
+        "min": 80,
+        "max": 99.999,
+        "score": 3
+      }
+    ],
+    "closure_days": [
+      {
+        "min": 60,
+        "max": 9999,
+        "continuous_with_closed_season": 20,
+        "separate_from_closed_season": 10
+      },
+      {
+        "min": 50,
+        "max": 59,
+        "continuous_with_closed_season": 18,
+        "separate_from_closed_season": 8
+      },
+      {
+        "min": 40,
+        "max": 49,
+        "continuous_with_closed_season": 16,
+        "separate_from_closed_season": 6
+      },
+      {
+        "min": 30,
+        "max": 39,
+        "continuous_with_closed_season": 14,
+        "separate_from_closed_season": 4
+      },
+      {
+        "min": 15,
+        "max": 29,
+        "continuous_with_closed_season": 12,
+        "separate_from_closed_season": 2
+      }
+    ],
+    "electronic_catch_report": [
+      {
+        "min": 100,
+        "max": 100,
+        "score": 20
+      },
+      {
+        "min": 90,
+        "max": 99.999,
+        "score": 18
+      },
+      {
+        "min": 80,
+        "max": 89.999,
+        "score": 16
+      },
+      {
+        "min": 70,
+        "max": 79.999,
+        "score": 14
+      },
+      {
+        "min": 60,
+        "max": 69.999,
+        "score": 12
+      },
+      {
+        "min": 50,
+        "max": 59.999,
+        "score": 10
+      }
+    ],
+    "other_score_cap": 20,
+    "other_max_items": 3,
+    "marine_litter": {
+      "max_score": 10,
+      "participation": [
+        {
+          "min": 100,
+          "score": 5
+        },
+        {
+          "min": 80,
+          "max": 99.999,
+          "score": 3
+        }
+      ],
+      "quantity": {
+        "offshore": [
+          {
+            "min": 3.5,
+            "unit": "t",
+            "score": 5
+          },
+          {
+            "min": 2,
+            "max": 3.499,
+            "unit": "t",
+            "score": 4
+          },
+          {
+            "min": 1,
+            "max": 1.999,
+            "unit": "t",
+            "score": 3
+          }
+        ],
+        "coastal": [
+          {
+            "min": 200,
+            "unit": "kg",
+            "score": 5
+          },
+          {
+            "min": 100,
+            "max": 199.999,
+            "unit": "kg",
+            "score": 4
+          },
+          {
+            "min": 50,
+            "max": 99.999,
+            "unit": "kg",
+            "score": 3
+          }
+        ]
+      },
+      "offshore_under_10t_uses": "coastal"
+    },
+    "strengthened_gear_limit": {
+      "full": 10,
+      "min80": 8
+    },
+    "strengthened_size_weight_limit": {
+      "full": 10,
+      "min80": 8
+    },
+    "seed_release": 5,
+    "other_single_items": {
+      "gear_deposit": 5,
+      "biodegradable_gear": 5,
+      "marine_mammal_mitigation": 5,
+      "other": 5
+    }
+  },
+  "closure": {
+    "min_continuous_days": 15,
+    "period": {
+      "from": "2027-01-01",
+      "to": "2027-09-30"
+    },
+    "full_stop_required": true,
+    "closed_season_scoring_note": "금어기와 연속 설정 여부에 따라 중단기간 점수가 달라짐. 금어기가 없는 대상어종은 '금어기와 별도' 기준 적용. TAC 참여어종이 다수이면 주어획종 1종에 적용.",
+    "evidence": [
+      "출입항기록",
+      "항적자료",
+      "무선통신 보고",
+      "어획보고 자료"
+    ]
+  },
+  "electronic_catch_report": {
+    "method": "해양수산부 어획증명관리시스템 앱",
+    "not_allowed": "수협 조업정보알리미 앱",
+    "plan_period": {
+      "from": "2027-02-01",
+      "to": "2027-09-30"
+    },
+    "participation_min_pct": 50,
+    "implementation_success_pct": 80,
+    "coastal": "조업일마다 1회 이상(하루 여러 항차여도 1회 인정)",
+    "offshore": "1항차(출항~입항)마다 1회 이상",
+    "no_catch_report": "어획물 없음",
+    "recognition_deadline": "2027-09-30까지 입력된 어획보고 실적"
+  },
+  "ineligible_group_reduction": [
+    {
+      "min": 0,
+      "max": 19.999,
+      "reduction_pct": 0
+    },
+    {
+      "min": 20,
+      "max": 29.999,
+      "reduction_pct": 10
+    },
+    {
+      "min": 30,
+      "max": 39.999,
+      "reduction_pct": 20
+    },
+    {
+      "min": 40,
+      "max": 49.999,
+      "reduction_pct": 40
+    },
+    {
+      "min": 50,
+      "max": 100,
+      "reduction_pct": 100,
+      "note": "단체 구성원 전원 미지급"
+    }
+  ],
+  "payment": {
+    "under_or_equal_2t_krw": 1500000,
+    "rates": [
+      {
+        "max_ton": 10,
+        "krw_per_ton": 750000
+      },
+      {
+        "max_ton": 20,
+        "krw_per_ton": 700000
+      },
+      {
+        "max_ton": null,
+        "krw_per_ton": 650000
+      }
+    ],
+    "individual_cap_ton": 90,
+    "corporate_cap_ton": 140,
+    "individual_cap_krw": 60000000,
+    "corporate_cap_krw": 92500000,
+    "fleet_auxiliary_recognition_pct": 10
+  },
+  "future_penalty": {
+    "effective_from": 2028,
+    "individual_abandonment_points": -3,
+    "group_cap_points": -10,
+    "group_abandonment_points": -10,
+    "exceptions": [
+      "침몰",
+      "매매",
+      "사망"
+    ],
+    "note": "2027 평가총괄표에 신설 내용으로 안내되나 실제 적용은 2028년부터."
+  }
+}
